@@ -141,7 +141,7 @@ return [
 
     'maintenance' => [
         'driver' => 'file',
-        // 'store'  => 'redis',
+        // 'store' => 'redis',
     ],
 
     /*
@@ -186,5 +186,3 @@ return [
     ])->toArray(),
 
 ];
-
-//INI CUMAN TEST UPDATE

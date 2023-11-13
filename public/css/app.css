@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+body {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+audio::-webkit-media-controls-panel {
+	background-color: #ffffff;
+}
+
+audio::-webkit-media-controls-play-button {
+	background-color: #bdbdbd;
+	border-radius: 100%;
+}
+
+audio::-webkit-media-controls-play-button:hover {
+	background-color: #8a8a8a;
+}
+
+audio::-webkit-media-controls-play-button:active {
+	background-color: #646464;
+}
+
+.audio-player {
+	width: 400px;
+	border-radius: 10px;
+	background-color: #ffffff;
+	height: 120px;
+	padding: 30px;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 400px) {
+	.audio-player {
+		width: 320px;
+		border-radius: 10px;
+		background-color: #ffffff;
+		height: 90px;
+	}
+}
+  

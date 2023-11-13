@@ -4,20 +4,23 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Qinep</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
         <!-- Styles -->
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="antialiased ">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-center bg-[#FCF5ED] selection:bg-red-500 selection:text-white">
+    <body class="antialiased" id="style-4">
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-center bg-[#FCF5ED] selection:bg-red-500 selection:text-white w-screen" >
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 flex justify-between py-3 px-16 w-screen z-10 bg-[#000000]">
                     @auth
+                        <a href="/" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">                           
                         <div class="flex">
                         <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 24 24" fill="none">
                             <path d="M12 18C12 20.2091 10.2091 22 8 22C5.79086 22 4 20.2091 4 18C4 15.7909 5.79086 14 8 14C10.2091 14 12 15.7909 12 18Z" stroke="#1C274C" stroke-width="1.5"/>
@@ -26,10 +29,12 @@
                         </svg>
                         <p class="text-gray-400 font-bold text-2xl mt-4">Qinep</p>
                         </div>
+                        </a>
                         <div>
                             <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                         </div>    
                     @else
+                        <a href="/" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">                           
                         <div class="flex">
                         <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 24 24" fill="none">
                             <path d="M12 18C12 20.2091 10.2091 22 8 22C5.79086 22 4 20.2091 4 18C4 15.7909 5.79086 14 8 14C10.2091 14 12 15.7909 12 18Z" stroke="#1C274C" stroke-width="1.5"/>
@@ -42,12 +47,13 @@
                         <a href="{{ route('album') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 mx-2">Album</a>
                             <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 mx-2">Log in</a>                            
                         </div>
+                        </a>
                     @endauth                
                 </div>
             @endif
-            <div class="md:flex justify-between w-[70%] px-20 ">
-                <div class="w-[200px] h-[200px]">
-                    <img src="{{ asset('profile.jpg') }}" class="cover mt-20 rounded-md" alt="hero" />            
+            <div class="md:flex justify-between w-[100%] md:w-[70%] px-20 ">
+                <div class="w-[100%] md:w-[200px] md:h-[200px]">
+                    <img src="{{ asset('profile.jpg') }}" class="cover mt-20 rounded-md w-[100%]" alt="hero" />            
                 </div>
                 <div class="mt-8 md:w-2/5 w-[100%]">
                     <p class="text-xl font-extrabold text-center ">SKILLS</p>

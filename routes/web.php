@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlbumsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/album', function () {
-    return view('album');
-})->name('album');
+Route::get('/album', [AlbumsController::class, 'getAlbum'])->name('album');
 
 require __DIR__.'/auth.php';

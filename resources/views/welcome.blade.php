@@ -30,7 +30,8 @@
                         <p class="text-gray-400 font-bold text-2xl mt-4">Qinep</p>
                         </div>
                         </a>
-                        <div>
+                        <div class="mt-4">
+                        <a href="{{ route('album') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 mx-2">Album</a>
                             <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                         </div>    
                     @else
@@ -59,20 +60,20 @@
                     <p class="text-xl font-extrabold text-center ">SKILLS</p>
                     <div class="mt-4">
                         <p class="text-sm font-semibold">Audio</p>
-                        <div class="relative w-full h-3 bg-gray-200 rounded-full mt-1">
-                            <div class="absolute top-0 left-0 h-3 bg-[#1F1717] rounded-full" style="width: 80%;"></div>
+                        <div class="relative w-full h-3 bg-gray-200 mt-1">
+                            <div class="progress-bar1" style="width: 80%;"></div>
                         </div>
                     </div>
                     <div class="mt-4">
                         <p class="text-sm font-semibold">Web</p>
-                        <div class="relative w-full h-3 bg-gray-200 rounded-full mt-1">
-                            <div class="absolute top-0 left-0 h-3 bg-[#1F1717] rounded-full" style="width: 70%;"></div>
+                        <div class="relative w-full h-3 bg-gray-200 mt-1">
+                            <div class="progress-bar2" style="width: 70%;"></div>
                         </div>
                     </div>
                     <div class="mt-4">
                         <p class="text-sm font-semibold">Mobile</p>
-                        <div class="relative w-full h-3 bg-gray-200 rounded-full mt-1">
-                            <div class="absolute top-0 left-0 h-3 bg-[#1F1717] rounded-full" style="width: 60%;"></div>
+                        <div class="relative w-full h-3 bg-gray-200 mt-1">
+                            <div class="progress-bar3" style="width: 60%;"></div>
                         </div>
                     </div>
                 </div>

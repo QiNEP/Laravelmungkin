@@ -51,6 +51,76 @@ audio::-webkit-media-controls-play-button:active {
 	margin: 0 auto;
 }
 
+.cb-shadow{
+	box-shadow: black 7px 7px 0px 2px;
+}
+
+.cb-shadow-grey{
+	box-shadow: rgb(163, 163, 163) 6px 6px 0px 1px;
+}
+
+.butt-shadow{
+	box-shadow: black 5px 5px 0px 1px;
+}
+
+.butt-shadow:active{
+	box-shadow: black 0px 0px 0px 0px;
+}
+
+.progress-bar1{
+	background-color: #1F1717;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 12px;
+	animation: progress1 4s ease-in-out normal;
+}
+
+.progress-bar2{
+	background-color: #1F1717;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 12px;
+	animation: progress2 3s ease-in normal;
+}
+
+.progress-bar3{
+	background-color: #1F1717;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 12px;
+	animation: progress3 4.5s ease-in normal;
+}
+
+@keyframes progress1 {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 80%;
+	}
+}
+
+@keyframes progress2 {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 70%;
+	}
+}
+
+@keyframes progress3 {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 60%;
+	}
+}
+
 @media screen and (max-width: 400px) {
 	.audio-player {
 		width: 320px;

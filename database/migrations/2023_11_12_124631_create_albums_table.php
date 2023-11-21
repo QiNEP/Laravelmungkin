@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->timestamps();
             $table->string('album_name');
             $table->string('genre');

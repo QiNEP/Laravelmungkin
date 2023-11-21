@@ -11,6 +11,7 @@ class album extends Model
 
     public $table = 'albums';
     protected $fillable = [
+        'uuid',
         'album_name',
         'genre',
         'years',

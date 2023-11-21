@@ -8,9 +8,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
     <body>
+        <?php  $id = 1; ?>
     <div class="relative justify-center items-center min-h-screen bg-center bg-[#FCF5ED] selection:bg-red-500 selection:text-white overflow-x-hidden" >
             @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 flex justify-between py-3 px-16 w-screen z-10 bg-[#B3B5BA]">
+            <div class="fixed flex justify-between py-3 px-16 w-screen z-10 bg-[#B3B5BA]">
                 @auth
                     <a href="/" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">                           
                     <div class="flex">
@@ -21,7 +22,9 @@
                     </svg>
                     <p class="text-slate-900 font-bold text-2xl mt-4">Qinep</p>
                     </div>
-                    <div>
+                    <div class="mt-4">
+                        <a href="/" class="font-bold text-black dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 mx-2">Profile</a>
+                        <a href="{{ route('album') }}" class="font-bold text-black hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 mx-2">Album</a>
                         <a href="{{ url('/dashboard') }}" class="font-bold text-black dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     </div>
                     </a>
@@ -43,48 +46,54 @@
                     </a>
                 @endauth                
             </div>
-        @endif
+            @endif
+            <div class="h-[87px]"></div>
         @foreach ($album as $album)
-            <div class ="md:mt-20 w-screen h-[400px] bg-cover border-y-4 border-cyan-900 sm:mt-[5.5rem] mt-0" style="background-image: url('{{$album->image}}')">
-                <div class="bg-black text-center rounded-b-2xl mx-auto border">
+            <div class ="w-screen h-[400px] bg-cover" style="background-image: url('{{asset($album->image)}}')">
+                <div class="bg-black text-center rounded-b-2xl mx-auto border z-0">
                     <p class="mx-24 text-white font-bold text-xl">{{$album->album_name}}</p>
                 </div>
 
-                <div class="mt-10 md:flex md:justify-between">
+                <div class="md:mt-24 mt-10 md:flex md:justify-between">
                 <!-- Audio Player -->
-                <div class="md:mx-10 mx-auto">
-                    <audio controls controlsList="nodownload" class="audio-player md:mx-10 mx-auto my-0">
-                        <source src="{{ asset('audio/martyr.mp3')}}" type="audio/mpeg">
-                    </audio>
-
-                    <!-- Details -->
-                    <div class="md:mx-10 mx-auto my-0 bg-black rounded-md w-36 opacity-70 mt-3">
-                        <p class="text-white ml-2 font-bold opacity-100 text-sm">Genre &nbsp; : {{ $album->genre}}</p>
-                        <p class="text-white ml-2 font-bold opacity-100 text-sm">Year  &emsp; : {{ $album->years}}</p>
-                        <p class="text-white ml-2 font-bold opacity-100 text-sm">BPM   &ensp;&nbsp; : {{ $album->bpm}}</p>
-                        <p class="text-white ml-2 font-bold opacity-100 text-sm">DO = {{ $album->kunci}}</p>
+                    <div class="md:mx-10 mx-auto">
+                        <audio controls controlsList="nodownload" class="audio-player md:mx-10 mx-auto my-0 cb-shadow">
+                            <source src="{{ asset($album->audio_sample)}}" type="audio/mpeg">
+                        </audio>
+    
+                        <!-- Details -->
+                        <div class="md:mx-10 mx-auto my-0 bg-black rounded-md w-36 opacity-70 mt-3">
+                            <p class="text-white ml-2 font-bold opacity-100 text-sm">Genre &nbsp; :<span class="font-light"> {{ $album->genre}} </span></p>
+                            <p class="text-white ml-2 font-bold opacity-100 text-sm">Year  &emsp; :<span class="font-light"> {{ $album->years}} </span></p>
+                            <p class="text-white ml-2 font-bold opacity-100 text-sm">BPM   &ensp;&nbsp; : <span class="font-light"> {{ $album->bpm}}</span></p>
+                            <p class="text-white ml-2 font-bold opacity-100 text-sm">DO = <span class="font-light"> {{ $album->kunci}}</span></p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="md:mt-0 mt-10">
-                    <!-- Music List -->
-                    <div class="md:mx-10 mx-auto my-0">
-                        <?php $music = explode(' ', $album->music_list); $id = 1; 
-                        echo "<button class='bg-slate-50 w-16 active:bg-slate-400 hover:bg-slate-200 p-1 rounded-md font-bold duration-200 md:mr-64' onclick='listMusic($id)'>Music</button>";
-                        echo "<ul class='opacity-0 hidden' id='$id'>";
-                        ?>
-                        @foreach ($music as $music)
-                            <li><p class="md:mr-64 font-bold text-xl text-white text-center">{{$music}}</p></li>
-                        @endforeach
-                        </ul>
-                        <?php $id = $id + 1 ?>
+                    
+                    <div class="md:mt-0 mt-10 flex justify-center">                        
+                        <!-- Buy Button -->
+                        <div class="mt-1">
+                            <a onclick="playClickSound()" href="#" class="butt-shadow bg-yellow-300 active:bg-yellow-500 hover:bg-yellow-400 p-1 rounded-md font-bold duration-200 mr-3">Buy</a>
+                        </div>
+                        <!-- Music List -->
+                        <div class="">
+                            <?php $music = explode(' ', $album->music_list); 
+                            echo "<button class='butt-shadow bg-slate-50 w-16 active:bg-slate-400 hover:bg-slate-200 p-1 rounded-md font-bold duration-200 md:mr-64' onclick='listMusic($id)'>Music</button>";
+                            echo "<ul class='opacity-0 hidden md:mr-64 mt-3 z-10' id='$id'>";
+                            $id++;
+                            ?>
+                            @foreach ($music as $music)
+                                <li class="bg-black cb-shadow-grey"><p class="font-extralight text-lg text-white text-center">{{$music}}</p></li>
+                            @endforeach
+                            </ul>
+                        </div>                        
                     </div>
-                </div>
                 </div>
             </div>
         @endforeach
         </div>
     </body>
     <script src="{{ asset('js/musiclist.js') }}"></script>
+    <script src="{{ asset('js/clicksound.js') }}"></script>
     
 </html>
